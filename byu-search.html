@@ -48,7 +48,19 @@
             width: 100%;
         }
 
+        .info {
+            border: 2px solid #002E5D;
+            border-radius: 0.5em;
+            padding: 0 1em 1em;
+            background-color: #c3ddf9;
+        }
     </style>
+
+
+    <link rel="stylesheet" href="lib/prism/themes/prism.css">
+    <script src="lib/prism/prism.js"></script>
+    <script src="lib/prism/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
+</head>
 </head>
 
 <body>
@@ -68,6 +80,19 @@
 <div class="page-content">
 
     <h1><code>byu-search</code></h1>
+
+    <div class="info">
+        <h2>Preview</h2>
+        <p>
+            This version of <code>byu-search</code> is in a preview state. To use it, replace the stylesheet and script
+            tags that import the <code>byu-theme-components</code> into your site with the following:
+        </p>
+        <pre><code class="language-html">
+         &lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/experimental/byu-search-enhancements/byu-theme-components.min.css" /&gt;
+         &lt;script async src="https://cdn.byu.edu/byu-theme-components/experimental/byu-search-enhancements/byu-theme-components.min.js"&gt;&lt;/script&gt;
+     </code></pre>
+    </div>
+
 
     <p>
         Because there are as many ways to perform a search as there are webpages, <code>byu-search</code> has several
@@ -292,13 +317,15 @@
     <h2>Custom Actions</h2>
 
     <p>
-        If none of the built in actions fit your needs, <code>byu-search</code> fires a <code>byu-search</code> event that
+        If none of the built in actions fit your needs, <code>byu-search</code> fires a <code>byu-search</code> event
+        that
         you can use to perform some custom action. You can listen for this event in two ways: via
         an <code>onbyusearch</code> attribute or by adding an event handler using Javascript.
     </p>
 
     <p>
-        The event that is fired will have a type of '<code>byu-search</code>' and will have a <code>details</code> object
+        The event that is fired will have a type of '<code>byu-search</code>' and will have a <code>details</code>
+        object
         containing <code>search</code>, which contains the user-entered search text.
     </p>
 
@@ -312,7 +339,8 @@
     <a id="onbyusearch-callback"></a>
     <h3><code>onbyusearch</code> attribute</h3>
     <p>
-        You can specify a Javascript function to call using <code>onbyusearch</code>. Unlike a normal HTML event handler,
+        You can specify a Javascript function to call using <code>onbyusearch</code>. Unlike a normal HTML event
+        handler,
         like <code>onclick</code>, you cannot specify arbitrary Javascript. The value MUST be a globally-available
         function name.
     </p>
@@ -339,7 +367,6 @@
             '</demo-snippet>'
         );
     </script>
-
 
 
     <h3>Event Listener</h3>
@@ -370,14 +397,15 @@
     </script>
 
     <p>
-        You can also use <code>addEventListener</code> and <code>onbyusearch</code> to prevent the predefined actions from
+        You can also use <code>addEventListener</code> and <code>onbyusearch</code> to prevent the predefined actions
+        from
         firing by calling <code>preventDefault()</code> on the event. This is useful, for example, if you want to
         restrict searching to a list of predefined terms.
     </p>
 
     <p>
         In this example, if you search for most terms, the button will be clicked and you'll see an alert saying
-        "Searched using a click."  If you enter "Utah Football Rocks", you'll see an alert saying "No, it doesn't," and
+        "Searched using a click." If you enter "Utah Football Rocks", you'll see an alert saying "No, it doesn't," and
         the default click action will not be performed.
     </p>
 
@@ -409,14 +437,15 @@
     <h3><code>onsearch</code> attribute <strong>(deprecated)</strong></h3>
 
     <p>
-        In the initial release of <code>byu-search</code>, the way to handle searches was using the <code>onsearch</code>
-        attribute.  This is now deprecated in favor of the above methods.  The event and callback name was changed from
+        In the initial release of <code>byu-search</code>, the way to handle searches was using the
+        <code>onsearch</code>
+        attribute. This is now deprecated in favor of the above methods. The event and callback name was changed from
         <code>onsearch</code> to <code>byu-search</code> and <code>onbyusearch</code> to avoid conflicting with the
         non-standard <code>search</code> event in Chrome and Safari.
     </p>
     <p>
         <code>onsearch</code> functions the same way as <a href="#onbyusearch-callback"><code>onbyusearch</code></a>,
-        with one exception: the <code>onsearch</code> function will receive two parameters.  The first, for
+        with one exception: the <code>onsearch</code> function will receive two parameters. The first, for
         reasons of backwards-compatibility, is the search text, and the second is the actual search event.
     </p>
 

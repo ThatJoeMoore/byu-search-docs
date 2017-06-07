@@ -30,13 +30,13 @@
     var root = '//cdn.byu.edu/byu-theme-components/experimental/byu-search-enhancements';
     var min = true;
 
-    var isLocalhost = window.location.hostname === 'localhost';
-    var isForced = window.location.search && window.location.search.indexOf('load-local=true') >= 0;
-
-    if (isLocalhost || isForced) {
-        min = false;
-        root = '/dist'
-    }
+    // var isLocalhost = window.location.hostname === 'localhost';
+    // var isForced = window.location.search && window.location.search.indexOf('load-local=true') >= 0;
+    //
+    // if (isLocalhost || isForced) {
+    //     min = false;
+    //     root = '/dist'
+    // }
 
     var scriptPath = url(root, 'byu-theme-components', min, 'js');
     var stylePath = url(root, 'byu-theme-components', min, 'css');
